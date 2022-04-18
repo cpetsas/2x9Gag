@@ -13,15 +13,17 @@ const formData = require("express-form-data");
 
 let app=express()
 
-const options = {
-    uploadDir: './pictures',
-    autoClean: false
-  };
+// const options = {
+//     uploadDir: './pictures',
+//     autoClean: false
+//   };
 
-app.use(formData.parse(options));
-app.use(formData.format());
-app.use(formData.stream());
-app.use(formData.union());
+// app.use(formData.parse(options));
+// app.use(formData.format());
+// app.use(formData.stream());
+// app.use(formData.union());
+
+// app.use(multer({dest:'./uploads/'}).single('photo'));
 
 app.use(bodyParser.json());
 app.use(express.urlencoded());

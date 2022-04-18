@@ -5,5 +5,6 @@ export DB_PASSWORD='gag'
 export DB_PORT=5432
 export PORT=5050
 export HOST=localhost
+export DEV=1
 
 nodemon app.js

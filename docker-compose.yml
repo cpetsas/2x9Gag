@@ -1,0 +1,23 @@
+version: '3.4'
+services:
+
+  postgres:
+    image: postgres:9.4
+    restart: unless-stopped
+    ports:
+      - "5432"
+
+  backend:
+    restart: unless-stopped
+    build:
+      context: ./backend
+      dockerfile: ./Dockerfile
+      target: dev
+    environment:
+      PG_HOST: postgres
+    depends_on:
+      - postgres
+
+networks:
+  app-network:
+    driver: bridge

@@ -1,0 +1,32 @@
+version: '3.4'
+services:
+
+  postgres:
+    environment:
+      POSTGRES_DB: newgag
+      POSTGRES_USER: gag
+      POSTGRES_PASSWORD: gag
+    # volumes:
+    #   - /usr/var/postgres_data_dev:/var/lib/postgresql
+    networks:
+      - app-network-dev
+
+  backend:
+      ports:
+        - "4000"
+      environment:
+        PORT: 4000
+        NODE_ENV: dev
+        PG_DATABASE: newgag
+        PG_USER: gag
+        PG_PASSWORD: gag
+      volumes:
+        - /var/www/backend/static_dev/img:/static/img
+      depends_on:
+        - postgres
+      networks:
+        - app-network-dev
+
+networks:
+  app-network-dev:
+    driver: bridge

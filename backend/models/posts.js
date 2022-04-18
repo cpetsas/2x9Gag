@@ -11,6 +11,18 @@ module.exports = (sequelize) => {
         status: {
             type: Sequelize.STRING,
             defaultValue: 'Pending approval'
+        },
+        title: {
+            type: Sequelize.STRING,
+            allowNull: false
+        },
+        image_name: {
+            type: Sequelize.STRING,
+            allowNull: true,
+            unique: true
+        },
+        tags: {
+            type: Sequelize.STRING
         }
     }, {
         sequelize,
